@@ -23,11 +23,13 @@ int setnonblocking(int fd)      //非阻塞的连接服务器
     int old_option = fcntl(fd,F_GETFL);
     int new_option = old_option | O_NONBLOCK;
     fcntl(fd,F_SETFL,new_option);
-
     return old_option;
 
 }
-int main(int argc,char *argv[])
+int setnolock(int fd)
+{    
+}
+int  main(int argc,char *argv[])
 {
     struct sockaddr_in client_addr,my_addr;
     int PORT,PORT1=4096;
@@ -79,4 +81,4 @@ int main(int argc,char *argv[])
         close(conn_fd);
     }
     return 0;
-}
+
